@@ -22,8 +22,6 @@ TEST_CASE("true false"){
     CHECK(a >= b);
     CHECK(a >= a);
     CHECK(a != b);
-    CHECK_FALSE(a < b);
-    CHECK_FALSE(a <= b);
 }
 
 TEST_CASE("basic"){
