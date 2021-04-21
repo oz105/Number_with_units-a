@@ -14,6 +14,18 @@ TEST_CASE ("Init units.txt") {
     }
 }
 
+TEST_CASE("true false"){
+    NumberWithUnits a(7, "ton");
+    NumberWithUnits b(300, "kg");
+
+    CHECK(a > b); 
+    CHECK(a >= b);
+    CHECK(a >= a);
+    CHECK(a != b);
+    CHECK_FALSE(a < b);
+    CHECK_FALSE(a <= b);
+}
+
 TEST_CASE("basic"){
     NumberWithUnits km7(7, "km");
     NumberWithUnits cm750(750, "cm");
