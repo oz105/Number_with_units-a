@@ -46,9 +46,19 @@ TEST_CASE("operators "){
     CHECK_EQ(m + cm, NumberWithUnits{50.07, "m"});
     CHECK_EQ(cm += m, NumberWithUnits{5007, "cm"});
     CHECK_EQ(m -= cm, NumberWithUnits{50, "m"});
-    NumberWithUnits hour{7, "hour"};
+    NumberWithUnits ton{7, "ton"};
+    NumberWithUnits kg{2, "kg"};
+    CHECK_EQ(kg + ton, NumberWithUnits{7002 "kg"});
+    CHECK_EQ(ton + kg, NumberWithUnits{7.002, "ton"});
+    CHECK_EQ(ton - kg, NumberWithUnits{6.998, "kg"});
+      NumberWithUnits hour{7, "hour"};
     NumberWithUnits min{8, "min"};
     NumberWithUnits sec{10, "sec"};
+    CHECK(hour > min == true ) ;
+    CHECK(min > sec == true ) ;
+    CHECK(sec > sec == false ) ;
+    CHECK(sec > hour == false ) ;
+    CHECK(hour > sec == true ) ;
     CHECK_EQ(++hour, NumberWithUnits{8, "hour"});
     CHECK_EQ(hour++, NumberWithUnits{8, "hour"});
     CHECK_EQ(hour, NumberWithUnits{9, "hour"});
@@ -58,9 +68,7 @@ TEST_CASE("operators "){
     CHECK(sec-- == (NumberWithUnits{10, "sec"}));
     CHECK_EQ(sec, NumberWithUnits{9, "sec"});
     CHECK(sec != (NumberWithUnits{3, "sec"}));
-    NumberWithUnits ton{7, "ton"};
-    NumberWithUnits kg{2, "kg"};
-    CHECK_EQ(kg + ton, NumberWithUnits{7002 "kg"});
-    CHECK_EQ(ton + kg, NumberWithUnits{7.002, "ton"});
-    CHECK_EQ(ton - kg, NumberWithUnits{6.998, "kg"}); 
+    
+    
+    
 }
