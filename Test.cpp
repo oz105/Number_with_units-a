@@ -58,9 +58,9 @@ TEST_CASE("operators "){
     CHECK(sec-- == (NumberWithUnits{10, "sec"}));
     CHECK_EQ(sec, NumberWithUnits{9, "sec"});
     CHECK(sec != (NumberWithUnits{3, "sec"}));
-    NumberWithUnits kg{7, "kg"};
-    NumberWithUnits g{2, "g"};
-    CHECK_EQ(kg + g, NumberWithUnits{7.002, "kg"});
-    CHECK_EQ(g += kg, NumberWithUnits{7002, "g"});
-    CHECK_EQ(kg -= g, NumberWithUnits{7, "kg"}); 
+    NumberWithUnits ton{7, "ton"};
+    NumberWithUnits kg{2, "kg"};
+    CHECK_EQ(kg + ton, NumberWithUnits{7002 "kg"});
+    CHECK_EQ(ton + kg, NumberWithUnits{7.002, "ton"});
+    CHECK_EQ(ton - kg, NumberWithUnits{6.998, "kg"}); 
 }
